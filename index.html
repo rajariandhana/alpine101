@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div x-data="{var1:'ini value var satu'}">
+        <div x-data="{var2:'ini value var dua'}">
+            <span x-text="var1"></span>
+            <span x-text="var2"></span>
+        </div>
+        <span x-text="var1"></span>
+        <span x-text="var2"></span>
+    </div>
+    <button x-data="{label:'click here'}" x-text="label"></button>
+    <button x-data @click="alert('was clicked')">click here</button>
+
+    <div class="container mx-auto w-1/2 text-center mt-10 bg-slate-200 p-10 rounded-xl shadow"
+        x-data="{namaDepan:'ralfazza',namaBelakang:'RJriand',
+        open:false,open2:false,warna:false
+        }"
+    >
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400 bg-clip-text text-transparent drop-shadow-sm">
+            Halo, <span x-text="namaDepan"> </span> <span x-text="namaBelakang"></span>
+        </h1>
+
+        <button @click="open=!open" x-text="open? 'close':'open'" class="py-2 px-5 bg-slate-600 text-white rounded-md"></button>
+            <div x-show="open" class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo rerum, alias molestias similique facere expedita. Quidem doloremque voluptas doloribus facilis perspiciatis eaque voluptates natus libero quas obcaecati sint veritatis tenetur, accusamus, adipisci ipsa consequuntur sapiente numquam veniam, tempora quam sed exercitationem. Hic natus recusandae doloremque quisquam voluptas amet beatae sunt!
+            </div>
+        <button @click="open2=!open2" x-text="open2? 'close':'open'" class="py-2 px-5 bg-slate-600 text-white rounded-md"></button>
+        <template x-if="open2">
+            <div class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white">
+                ini lorem kedua
+            </div>
+        </template>
+        <button @click="warna=!warna" class="py-2 px-5 bg-slate-600 text-white rounded-md" x-bind:class="warna?'bg-red-600':'bg-blue-600'">
+            warna
+        </button>
+    </div>
+
+    <div x-data="{pesan: 'hallo dunia'}"
+    class="container mx-auto w-3/4 text-center mt-10 bg-slate-200 p-10 rounded-xl shadow">
+        <button
+        @click="console.dir($event.target.classList)"
+        id="tombolPesan"
+        data-pesan="hello world"
+        class="py-2 px-5 bg-blue-400 text-white rounded-md" x-bind:class="warna?'bg-red-600':'bg-blue-600'">
+            klik aku
+        </button>
+    </div>
+
+    <div x-data="{}"
+    class="container mx-auto w-3/4 text-center mt-10 bg-slate-200 p-10 rounded-xl shadow">
+
+        <label for="name" class="text-sm font-medium text-gray-900 block mb-2">masukkan nama</label>
+        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        @keyup.enter="alert('data terkirim!')">
+    </div>
+
+
+</body>
+</html>
