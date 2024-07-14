@@ -47,5 +47,25 @@
             </template>
         </ul>
     </div>
+    <button x-data @click="alert('I\'ve been clicked!')">Click Me</button>
+    <div x-data="dropdown">
+        <button @click="toggle">Toggle Content</button>
+     
+        <div x-show="open">
+            Content...
+        </div>
+    </div>
+     
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('dropdown', () => ({
+                open: false,
+     
+                toggle() {
+                    this.open = ! this.open
+                },
+            }))
+        })
+    </script>
 </body>
 </html>
