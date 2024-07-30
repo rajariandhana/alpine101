@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide-in Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open"
+        class="bg-indigo-500 text-white px-2 py-1 rounded-md shadow-md text-center">Toggle</button>
+
+        <div :class="{ 'translate-x-0': open, 'translate-x-full': !open }"
+             class="fixed top-0 right-0 h-full w-72 bg-gray-800 text-white transform transition-transform duration-300">
+            <h2 class="p-4 text-lg font-semibold">Navigation</h2>
+            <ul class="space-y-4 p-4">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Services</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Navbar with Alpine.js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div x-data="{ open: false }" class="relative">
+        <div class="flex p-4">
+            <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded">Toggle Navbar</button>
+        </div>
+        <div :class="{ 'translate-x-0': open, 'translate-x-full': !open }"
+            class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out translate-x-full">
+            <div class="p-4">
+                <h2 class="text-xl font-bold">Navbar</h2>
+                <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded">Toggle Navbar</button>
+
+                <!-- Add your navbar content here -->
+            </div>
+        </div>
+    </div>
+    <div class=" transition-opacity transition-transform">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid tempore laboriosam fugit, ut quaerat suscipit omnis fuga eum. Molestias, laboriosam reprehenderit! Exercitationem eveniet necessitatibus quae labore a esse libero minus.
+    </div>
+
+    <h3 class="animate-bounce m-auto bg-blue text-center">
+        New Article From OpenReplay
+      </h3>
+      <div x-data="{ visible: false }" x-init="setTimeout(() => visible = true, 100)" class="">
+        <div :class="{ 'opacity-100 translate-x-0': visible, 'opacity-0 translate-x-4': !visible }" class="opacity-0 translate-x-4 transition-all">
+            This paragraph will fade in and move left when the page loads.
+            <div class="w-64 bg-blue-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cupiditate, eaque quas necessitatibus, dolorem sunt commodi totam blanditiis nesciunt amet quae, iusto ab iure ad obcaecati odit iste illum velit?
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
